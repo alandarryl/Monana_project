@@ -20,11 +20,18 @@ body{
 .navbar{
     position: fixed;
     width: 100%;
+    background-color: green;
+    transition: background-color 0.3s ease; /* Adjust transition duration */
+    /* display: none; */
+    z-index: 1000;
+}
+
+.navbar.scrolled{
+    background-color: blue;
 }
 
 nav{
     /* width: 100%; */
-    background-color: green;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -44,7 +51,7 @@ nav .logo a{
 nav .navbar-items ul{
     display: flex;
     justify-content: space-between;
-    gap: 17px;
+    gap: 70px;
 }
 
 .navbar-items ul li{
@@ -68,7 +75,7 @@ nav .navbar-items ul{
 }
 
 .navbar-items ul li a:hover{
-    color: blue;
+    color: #fff;
 }
 
 .navbar .nav-button{
@@ -103,10 +110,13 @@ nav .navbar-items ul{
     }
 
     nav .navbar-items{
+        opacity: 0;
         visibility: hidden;
+        transition: opacity 0.5s ease, visibility 0.3s ease;
     }
 
     nav .navbar-items.show{
+        opacity: 1;
         visibility: visible;
     }
 
@@ -118,92 +128,210 @@ nav .navbar-items ul{
 
 }
 
-/* .navbar{
+
+
+/* banner image style start */
+
+
+.banner{
+    background: url(./images/header-images.jpg) no-repeat center;
+    background-size: cover;
+    /* width: 100vw; */
+    height: 80vh;
     width: 100%;
-    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-nav{
-    padding: 18px 15px;
-    background-color: #3e885b;
+section .banner-content{
+    background-color: blueviolet;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    height: 80px;
+    justify-content: center;
+    flex-direction: column;
+    gap: 25px;
+    /* min-width: 300px;
+    min-height: 300px; */
+    width: 50%;
 }
 
-nav .logo a{
-    color: #bedcfe;
-    cursor: pointer;
+section .banner-content h1{
+    font-size: 70px;
+    font-weight: 700;
+    text-align: center;
 }
 
-nav .side-button{
-    display: none;
-    font-size: 50px;
-    color: #bedcfe;
-    border-radius: 50%;
-    padding: 5px;
-    cursor: pointer;
+section .banner-content p{
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
 }
 
-nav .side-button:hover{
-    background-color: #85bda6;
-}
-
-
-li{
-    list-style: none;
-}
-
-a{
-    text-decoration: none;
-}
-
-nav ul{
-
+section .banner-content .button{
+    background-color: red;
+    width: 100%;
     display: flex;
     justify-content: space-evenly;
-    gap: 50px;
-} 
+    margin-top: 20px;
+}
 
-nav ul li a{
-    padding: 20px 20px;
-    background-color: #85bda6; 
+.banner-content .button .btn{
+    background-color: green;
+    padding: 20px 25px;
+    color: #fff;
+    border-radius: 30px;
     text-decoration: none;
-    color: #000;
+    border: 1px solid #fff;
+    transition: background-color 0.4s ease;
+}
+
+.banner-content .button .btn:hover{
+    background-color: #fff;
+    color: #333;
 }
 
 
-@media (max-width: 768px) {
-    nav ul{
-        position: absolute;
-        top: 80px;
-        left: 0;
-        right: 0;
-        flex-direction: column;
-        text-align: center;
-        background-color: #85bda6;
-        max-height: 450px;
-    }
 
-    nav ul li{
-        padding: 20px;
-    }
+/* card container  */
 
 
-    nav .side-button{
-        display: block;
-    }
+.container{
+    /* margin-top: 50px; */
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 70px;
+}
 
-    
-    .hide{
-        display: none;
-    }
-} */
+.product-title h2{
+    color: red;
+    font-size: 47px;
+    margin: 50px auto ;
+    position: relative;
+    display: inline-block; /* Ensures the pseudo-element aligns correctly */
+    margin-bottom: 20px;
+    z-index: 100;
+}
+
+.product-title h2::after {
+    content: ""; /* Required for pseudo-elements */
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Adjust distance from text */
+    width: 100%;
+    height: 3px; /* Thickness of the line */
+    background-color: red; /* Color of the line */
+    z-index: 100;
+}
 
 
+.card-display{
+    /* display: grid;
+    grid-template-columns: 30% 30% 30%;
+    gap: 10%; */
+    display: flex;
+    justify-content: space-between;
+    gap: 35px;
+    flex-wrap: wrap;
+}
+
+.card{
+    min-width: 450px;
+    height: 400px;
+    border-radius: 7px;
+    /* border: 1px solid #333; */
+    overflow: hidden;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.card:hover{
+    box-shadow: #333;
+}
+
+.card-image{
+    width: 100%;
+    height: 75%;
+    border-radius: 7px;
+}
+
+.card-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 7px;
+}
 
 
+.card .card_content{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.card .card_content .btn{
+    background-color: green;
+    padding: 7px 14px;
+    color: #fff;
+    border-radius: 7px;
+    text-decoration: none;
+    border: 1px solid #fff;
+    transition: background-color 0.4s ease;
+}
+
+.card .card_content .btn:hover{
+    background-color: #fff;
+    color: #333;
+}
+
+
+/* card popup style  */
+
+.card-popup{
+    display: none;
+    position: absolute;
+    z-index: 200;
+    min-width: 60%;
+    max-width: 700px;
+    background-color: aqua;
+}
+
+.popup-items{
+    display: flex;
+    background-color: aquamarine;
+    margin: 15px 7px;
+    justify-content: space-between;
+}
+
+.card-image-popup{
+    background-color: yellow;
+    width: 50%;
+}
+.card-image-popup img{
+    width: 100%;
+    border-radius: 7px;
+}
+
+.card-popup-content{
+    background-color: gray;
+    width: 50%;
+    text-align: center;
+    padding: 45px 0;
+}
+
+.card-popup-content h2{
+    font-size: 47px;
+    font-weight: 700;
+    margin-bottom: 41px;
+}
+
+.card-popup-content p{
+    font-size: 18px;
+    font-weight: 600;
+}
 
 
 
