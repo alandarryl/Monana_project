@@ -15,19 +15,56 @@ body{
     font-weight: 600;
 }
 
+/* root data */
+
+:root {
+    /* Primary Colors */
+    --background-color: #f5f5f5;
+    --primary-accent-color: #003366;
+    --secondary-accent-color: #ff6600;
+
+    /* Text Colors */
+    --primary-text-color: #333333;
+    --secondary-text-color: #666666;
+
+    /* Button Colors */
+    --primary-button-color: var(--primary-accent-color);
+    --primary-button-hover-color: #002244;
+    --secondary-button-color: var(--secondary-accent-color);
+    --secondary-button-hover-color: #cc5200;
+
+    /* Borders and Shadows */
+    --border-color: #cccccc;
+    --shadow-color: #e0e0e0;
+
+    /* Hover Effects */
+    --primary-hover-color: var(--primary-button-hover-color);
+    --secondary-hover-color: var(--secondary-button-hover-color);
+
+    /* Underline Colors */
+    --underline-color: var(--secondary-accent-color);
+
+    /* Section Backgrounds */
+    --light-section-background-color: #ffffff;
+    --dark-section-background-color: var(--primary-accent-color);
+}
+
+
+
 /* navbar style */
 
 .navbar{
+    display: none;
     position: fixed;
     width: 100%;
-    background-color: green;
+    background-color: var(--background-color);
     transition: background-color 0.3s ease; /* Adjust transition duration */
     /* display: none; */
     z-index: 1000;
 }
 
 .navbar.scrolled{
-    background-color: blue;
+    background-color: var(--dark-section-background-color);
 }
 
 nav{
@@ -45,7 +82,7 @@ nav a{
 
 nav .logo a{
     font-size: 35px;
-    color: red;
+    color: var(--primary-text-color);
 }
 
 nav .navbar-items ul{
@@ -59,13 +96,13 @@ nav .navbar-items ul{
 }
 
 .navbar-items ul li a{
-    color: red;
+    color: var(--secondary-text-color);
     font-size: 15px;
     transition: 0.5s;
 }
 
 .navbar-items .close i{
-    color: red;
+    color: var(--secondary-text-color);
     font-size: 35px;
     transition: 0.5s;
     position: absolute;
@@ -80,7 +117,7 @@ nav .navbar-items ul{
 
 .navbar .nav-button{
     font-size: 45px;
-    color: red;
+    color: var(--primary-button-color);
     cursor: pointer;
 }
 
@@ -97,7 +134,7 @@ nav .navbar-items ul{
         /* left: 0; */
         min-height: 450px;
         min-width: 450px;
-        background-color: blue;
+        background-color: var(--dark-section-background-color);
         flex-direction: column;
         justify-content: space-around;
         text-align: center;
@@ -145,7 +182,7 @@ nav .navbar-items ul{
 }
 
 section .banner-content{
-    background-color: blueviolet;
+    background-color: var(--primary-accent-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -169,7 +206,7 @@ section .banner-content p{
 }
 
 section .banner-content .button{
-    background-color: red;
+    background-color: var(--background-color);
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -177,18 +214,18 @@ section .banner-content .button{
 }
 
 .banner-content .button .btn{
-    background-color: green;
+    background-color: var(--background-color);
     padding: 20px 25px;
-    color: #fff;
+    color: var(--primary-button-hover-color);
     border-radius: 30px;
     text-decoration: none;
-    border: 1px solid #fff;
+    border: 1px solid var(--border-color);
     transition: background-color 0.4s ease;
 }
 
 .banner-content .button .btn:hover{
-    background-color: #fff;
-    color: #333;
+    background-color: var(--background-color);
+    color: var(--secondary-text-color);
 }
 
 
@@ -207,7 +244,7 @@ section .banner-content .button{
 }
 
 .product-title h2{
-    color: red;
+    color: var(--primary-text-color);
     font-size: 47px;
     margin: 50px auto ;
     position: relative;
@@ -223,7 +260,7 @@ section .banner-content .button{
     bottom: -5px; /* Adjust distance from text */
     width: 100%;
     height: 3px; /* Thickness of the line */
-    background-color: red; /* Color of the line */
+    background-color: var(--background-color); /* Color of the line */
     z-index: 100;
 }
 
@@ -249,7 +286,7 @@ section .banner-content .button{
 }
 
 .card:hover{
-    box-shadow: #333;
+    box-shadow: var(--shadow-color);
 }
 
 .card-image{
@@ -273,18 +310,18 @@ section .banner-content .button{
 }
 
 .card .card_content .btn{
-    background-color: green;
+    background-color: var(--primary-button-color);
     padding: 7px 14px;
-    color: #fff;
+    color: var(--primary-button-color);
     border-radius: 7px;
     text-decoration: none;
-    border: 1px solid #fff;
+    border: 1px solid var(--border-color);
     transition: background-color 0.4s ease;
 }
 
 .card .card_content .btn:hover{
-    background-color: #fff;
-    color: #333;
+    background-color: var(--primary-button-hover-color);
+    color: var(--secondary-text-color);
 }
 
 
@@ -296,18 +333,18 @@ section .banner-content .button{
     z-index: 200;
     min-width: 60%;
     max-width: 700px;
-    background-color: aqua;
+    background-color: var(--dark-section-background-color);
 }
 
 .popup-items{
     display: flex;
-    background-color: aquamarine;
+    background-color: var(--light-section-background-color);
     margin: 15px 7px;
     justify-content: space-between;
 }
 
 .card-image-popup{
-    background-color: yellow;
+    background-color: var(--dark-section-background-color);
     width: 50%;
 }
 .card-image-popup img{
@@ -316,7 +353,7 @@ section .banner-content .button{
 }
 
 .card-popup-content{
-    background-color: gray;
+    background-color: var(--background-color);
     width: 50%;
     text-align: center;
     padding: 45px 0;
@@ -335,11 +372,169 @@ section .banner-content .button{
 
 
 
+/* slider style */
+
+.container .slider{
+    margin-top: 50px;
+}
+
+.slider{
+    position: relative;
+    overflow: hidden;
+    width: 90%;
+}
+
+.slider-items{
+    display: flex;
+    gap: 25px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.item{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transition: hover 0.5s ease-in-out;
+    border: 2px solid var(--border-color);
+}
+
+.item img{
+    min-width: 100%;
+}
+
+.item .text{
+    position: absolute;
+    top: 100px;
+    display: none;
+    transition: display 0.5s ease-in-out;
+}
+
+.item:hover .text{
+    display: block;
+}
+
+.slider button{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.slider button.prev{
+    left: 10px;
+}
+
+.slider button.next{
+    right: 10px;
+}
 
 
 
+/* footer style */
+
+.footer{
+    margin-top: 400px;
+    position: absolute;
+    bottom: 0;
+    padding: 40px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+    background-color: var(--dark-section-background-color);
+    border: none;
+}
+
+.footer .footer-items{
+    display: flex;
+    flex-direction: row;
+    padding: 20px 17px;
+    /* flex-wrap: wrap; */
+    border: none;
+}
+
+.footer .footer-items .item{
+    /* min-width: 250px; */
+    flex-direction: column;
+    border: none;
+    padding-bottom: 25px;
+}
+
+.footer-items .item h2, a{
+    padding-bottom: 20px;
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    font-size: 25px;
+}
+
+.footer-items .item p, li{
+    color: #fff;
+}
+
+.footer-items .item input{
+    width: 100%;
+    height: 40px;
+    padding: 15px 12px;
+    border-radius: 7px;
+    border: none;
+}
 
 
+.footer-items .item ul{
+    list-style: none;
+}
+
+.copyright{
+    font-size: 14px;
+    position: relative;
+}
+
+.footer-items .link-logo{
+    margin: 15px 0;
+    width: 100%;    
+}
+
+
+.footer-items .link-logo ul{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.link-logo ul li{
+    border-radius: 50%;
+    padding: 7px;
+    background-color: var(--light-section-background-color);
+    transition: transform 0.5S ease-in-out;
+}
+
+.link-logo ul li:hover{
+    transform: translateY(-10px);
+    /* box-shadow: var(--secondary-hover-color); */
+}
+
+
+
+.copyright::before{
+    content: ""; /* Required for pseudo-elements */
+    position: absolute;
+    left: 0;
+    top: -15px; /* Adjust distance from text */
+    width: 100%;
+    height: 3px; /* Thickness of the line */
+    background-color: var(--background-color); /* Color of the line */
+    z-index: 100;
+}
+
+@media (max-width: 768px){
+    .footer .footer-items{
+        flex-direction: column;
+    }
+}
+
+/* .footer-items .item ul{
+    
+} */
 
 
 
