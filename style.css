@@ -10,6 +10,7 @@
 }
 
 body{
+    /* position: relative; */
     width: 100%;
     height: 100%;
     font-weight: 600;
@@ -18,6 +19,52 @@ body{
 /* root data */
 
 :root {
+
+
+    /* navbar */
+    --navbar-background:#fff;
+    --navbar-background-scrolled:#fff;
+    --logo-color:#333;
+    --logo-color-scrolled:#333;
+    --navbar-link: #fff;
+    --navbar-link-scrolled: #fff;
+
+    /* overall text */
+
+    --text-size: 15px;
+    --text-size-small: 12px;
+    --title-size: 35px;
+    --title-size-small: 25px;
+    --title-font: "Helvetica Neue",Helvetica,Arial;
+    --text-font: "Helvetica Neue",Helvetica,Arial;
+    --link-font: "Helvetica Neue",Helvetica,Arial;
+
+    --text-color: red;
+    --button-text-color: yellow;
+
+    /* Borders and Shadows */
+    --border-color: #cccccc;
+    --shadow-color: #e0e0e0;
+    --transparent-background: rgba(255, 255, 255, 0.2);
+
+    /* light dark background */
+
+    --light-dark-background: #fff;
+
+    --dark-background: black;
+
+    /* button */
+
+    --button-background: white;
+    --button-background-hover: black;
+
+    /* underline */
+
+    --underline-color: orange;
+
+
+
+
     /* Primary Colors */
     --background-color: #f5f5f5;
     --primary-accent-color: #003366;
@@ -54,12 +101,12 @@ body{
 /* navbar style */
 
 .navbar{
-    display: none;
+    /* display: none; */
     position: fixed;
     width: 100%;
-    background-color: var(--background-color);
+    background-color: var(--transparent-background);
+    backdrop-filter:  blur(5px);
     transition: background-color 0.3s ease; /* Adjust transition duration */
-    /* display: none; */
     z-index: 1000;
 }
 
@@ -260,7 +307,7 @@ section .banner-content .button{
     bottom: -5px; /* Adjust distance from text */
     width: 100%;
     height: 3px; /* Thickness of the line */
-    background-color: var(--background-color); /* Color of the line */
+    background-color: red; /* Color of the line */
     z-index: 100;
 }
 
@@ -401,6 +448,7 @@ section .banner-content .button{
 
 .item img{
     min-width: 100%;
+    /* object-fit: cover; */
 }
 
 .item .text{
@@ -432,8 +480,13 @@ section .banner-content .button{
 
 /* footer style */
 
+.container.footers{
+    margin-bottom: 0;
+    margin-top: 500px;
+}
+
 .footer{
-    margin-top: 400px;
+    /* margin-top: 400px; */
     position: absolute;
     bottom: 0;
     padding: 40px 20px;
@@ -529,7 +582,15 @@ section .banner-content .button{
 @media (max-width: 768px){
     .footer .footer-items{
         flex-direction: column;
+        font-size: 15px;
     }
+
+    .container.footers{
+        margin-bottom: 0;
+        margin-top: 800px;
+    }
+
+
 }
 
 /* .footer-items .item ul{

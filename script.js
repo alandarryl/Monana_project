@@ -107,6 +107,58 @@ let newProduct = [
 ]
 
 
+let cardContainer = document.getElementById("card-container");
+let btn = document.querySelector('.btn');
+let cardPopup = document.querySelector('.card-popup');
 
+btn.addEventListener("click", ()=>{
+    console.log(btn.id);
+})
+
+const productCards = newProduct.map((item)=>{
+    return `
+        <div class="card">
+                <div class="card-image" id="${newProduct.id}" >
+                    <img src="${newProduct.imageLink}" alt="producrt1">
+                </div>
+                <div class="card_content">
+                    <h2>${newProduct.title}</h2>
+                    <a href="#" class="btn" id="${newProduct.id}" >Voir plus</a>
+                </div>
+        </div>
+    `;
+})
+// Insert the generated HTML into the container
+cardContainer.innerHTML = productCards.join('');
+
+
+// const container = document.querySelector('.card-container'); // Select the container where the cards will be added
+
+// Example object list
+const products = [
+  { id: 1, title: 'Product 1', description: 'Description 1', image: 'image1.jpg' },
+  { id: 2, title: 'Product 2', description: 'Description 2', image: 'image2.jpg' }
+];
+
+// Create and append each card to the container
+products.forEach(product => {
+  // Create the card element
+  const card = document.createElement('div');
+  card.className = 'card';
+
+  // Create and append the image
+  const img = document.createElement('img');
+  img.src = product.image;
+  img.alt = product.title;
+  card.appendChild(img);
+
+  // Create and append the title
+  const title = document.createElement('h2');
+  title.textContent = product.title;
+  card.appendChild(title);
+
+  // Append the card to the container
+  container.appendChild(card);
+});
 
 

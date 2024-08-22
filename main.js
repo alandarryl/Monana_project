@@ -63,3 +63,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.prev').addEventListener('click', prevSlide);
 });
 
+
+// popup open and close process
+
+
+
+
+
