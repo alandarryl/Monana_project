@@ -31,36 +31,40 @@ document.addEventListener('scroll', ()=>{
 // slide script
 
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
     let currentIndex = 0;
-    const slides = document.querySelectorAll('.slider-items .item');
+    const slides = document.querySelectorAll('.banner-content');
     const totalSlides = slides.length;
 
     function showSlide(index) {
-        if (index >= totalSlides) {
-            currentIndex = 0; // Loop to the first slide
-        } else if (index < 0) {
-            currentIndex = totalSlides - 1; // Loop to the last slide
-        } else {
-            currentIndex = index;
-        }
-        document.querySelector('.slider-items').style.transform = `translateX(-${currentIndex * 100}%)`;
+        slides.forEach((slide, i) => {
+            if (i === index) {
+                slide.classList.add('show');
+            } else {
+                slide.classList.remove('show');
+            }
+        });
     }
 
     function nextSlide() {
-        showSlide(currentIndex + 1);
+        currentIndex = (currentIndex + 1) % totalSlides;
+        showSlide(currentIndex);
     }
 
     function prevSlide() {
-        showSlide(currentIndex - 1);
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        showSlide(currentIndex);
     }
 
-    showSlide(currentIndex); // Initial display
+    // Initialize the first slide
+    showSlide(currentIndex);
 
-    // setInterval(nextSlide, 3000); // Auto-slide every 3 seconds
-
+    // Attach event listeners to buttons
     document.querySelector('.next').addEventListener('click', nextSlide);
     document.querySelector('.prev').addEventListener('click', prevSlide);
+
+    // Optionally, auto-slide every 5 seconds
+    setInterval(nextSlide, 5000);
 });
 
 
